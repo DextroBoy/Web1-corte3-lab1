@@ -1,0 +1,34 @@
+<app-navbar />
+
+<main class="categories-page container py-4">
+  <header class="categories-page__header">
+    <div>
+      <span class="categories-page__eyebrow">Clasificación</span>
+      <h1>Categorías del catálogo</h1>
+      <p class="text-secondary mb-0">Consulta los géneros disponibles para las películas.</p>
+    </div>
+    <a routerLink="/catalog" class="btn btn-primary">
+      <i class="bi bi-film me-2"></i>Explorar películas
+    </a>
+  </header>
+
+  @if (loading) {
+    <div class="alert alert-info" role="status">Cargando categorías...</div>
+  } @else if (errorMessage) {
+    <div class="alert alert-danger" role="alert">{{ errorMessage }}</div>
+  } @else {
+    <div class="categories-grid">
+      @for (category of categories; track category.id) {
+        <article class="category-card">
+          <div class="category-card__icon"><i class="bi bi-tag"></i></div>
+          <div>
+            <span class="category-card__number">Categoría #{{ category.id }}</span>
+            <h2>{{ category.nombre }}</h2>
+          </div>
+        </article>
+      } @empty {
+        <p class="text-center text-secondary">No hay categorías registradas.</p>
+      }
+    </div>
+  }
+</main>

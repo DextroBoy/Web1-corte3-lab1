@@ -10,8 +10,8 @@ import { ClientCreateReservationPage } from './pages/client-create-reservation/c
 import { AgentEventsPage } from './pages/agent-events/agent-events.page';
 import { AgentReservationsPage } from './pages/agent-reservations/agent-reservations.page';
 import { AgentCreateEventPage } from './pages/agent-create-event/agent-create-event.page';
-import { StudentsPage } from './pages/students/students.page';
-import { CoursesPage } from './pages/courses/courses.page';
+import { CatalogPage } from './pages/catalog/catalog.page';
+import { CategoriesPage } from './pages/categories/categories.page';
 
 export const routes: Routes = [
     {
@@ -73,12 +73,12 @@ export const routes: Routes = [
         component: AdminPage
     },
     {
-        path: "students",
-        component: StudentsPage
+        path: "catalog",
+        component: CatalogPage
     },
     {
-        path: "courses",
-        component: CoursesPage
+        path: "categories",
+        component: CategoriesPage
     },
     {
         path: "",

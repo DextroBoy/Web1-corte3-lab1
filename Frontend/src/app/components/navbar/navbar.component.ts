@@ -1,5 +1,5 @@
-import { Component, inject } from '@angular/core';
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 interface NavbarConfig {
   url: string;
@@ -17,52 +17,17 @@ export class NavbarComponent {
 
   navbarConfig: NavbarConfig[] = [];
 
-  clientConfig: NavbarConfig[] = [
-    { url: '/client/events', label: 'Eventos', icon: 'calendar3' },
-    { url: '/client/reservations', label: 'Reservaciones', icon: 'calendar3' },
-    { url: '/students', label: 'Estudiantes', icon: 'people' },
-    { url: '/courses', label: 'Cursos', icon: 'book' },
+  catalogConfig: NavbarConfig[] = [
+    { url: '/catalog', label: 'Películas', icon: 'film' },
+    { url: '/categories', label: 'Categorías', icon: 'tags' },
   ]
-
-  agentConfig: NavbarConfig[] = [
-    { url: '/agent/events', label: 'Eventos', icon: 'calendar3' },
-    { url: '/agent/create-event', label: 'Crear Evento', icon: 'calendar3' },
-  ]
-
-  private router = inject(Router);
 
   constructor(){
     this.setNavbarConfig();
   }
 
   setNavbarConfig(){
-    switch(this.getRole()){
-      case 'client':
-        this.navbarConfig = this.clientConfig;
-        break;
-      case 'agent':
-        this.navbarConfig = this.agentConfig;
-        break;
-    }
-  }
-
-  getRole(): 'client' | 'agent' | 'admin' {
-
-    const url = this.router.url;
-
-    if (url.includes('/client')) {
-      return 'client';
-    }
-
-    if (url.includes('/agent')) {
-      return 'agent';
-    }
-
-    if (url.includes('/admin')) {
-      return 'admin';
-    }
-
-    return 'client';
+    this.navbarConfig = this.catalogConfig;
   }
 
 }
