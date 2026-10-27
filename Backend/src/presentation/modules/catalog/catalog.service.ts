@@ -11,8 +11,8 @@ export class CatalogService {
 
   public async getMovies(): Promise<Movie[]> {
     const result = await pool.query<Movie>(
-      `SELECT m.id, m.nombre, m.descripcion, m.fecha, m.categoria_id,
-        c.nombre AS categoria_nombre
+      `SELECT m.id, m.nombre, m.descripcion, m.fecha,
+        m.categoria_id AS "categoriaId", c.nombre AS "categoriaNombre"
        FROM movies m
        INNER JOIN categorias c ON c.id = m.categoria_id
        ORDER BY m.fecha DESC, m.nombre;`

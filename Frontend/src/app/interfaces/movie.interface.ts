@@ -3,6 +3,6 @@ export interface Movie {
   nombre: string;
   descripcion: string | null;
   fecha: string;
-  categoria_id: number;
-  categoria_nombre: string;
+  categoriaId: number;
+  categoriaNombre: string;
 }

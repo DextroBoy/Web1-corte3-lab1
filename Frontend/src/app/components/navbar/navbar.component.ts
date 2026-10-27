@@ -18,7 +18,7 @@ export class NavbarComponent {
   navbarConfig: NavbarConfig[] = [];
 
   catalogConfig: NavbarConfig[] = [
-    { url: '/catalog', label: 'Películas', icon: 'film' },
+    { url: '/movies', label: 'Películas', icon: 'film' },
     { url: '/categories', label: 'Categorías', icon: 'tags' },
   ]
 

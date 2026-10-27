@@ -12,6 +12,7 @@ import { AgentReservationsPage } from './pages/agent-reservations/agent-reservat
 import { AgentCreateEventPage } from './pages/agent-create-event/agent-create-event.page';
 import { CatalogPage } from './pages/catalog/catalog.page';
 import { CategoriesPage } from './pages/categories/categories.page';
+import { Movies } from './pages/movies/movies';
 
 export const routes: Routes = [
     {
@@ -75,6 +76,10 @@ export const routes: Routes = [
     {
         path: "catalog",
         component: CatalogPage
+    },
+    {
+        path: "movies",
+        component: Movies
     },
     {
         path: "categories",
