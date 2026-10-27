@@ -36,13 +36,3 @@ CREATE TABLE IF NOT EXISTS enrollments_example (
         fecha DATE NOT NULL,
         categoria_id INTEGER NOT NULL REFERENCES categorias(id)
     );
-
-     INSERT INTO categorias (nombre) VALUES
-    ('Acción'),
-    ('Comedia'),
-    ('Drama');
-
-     INSERT INTO movies (nombre, descripcion, fecha, categoria_id) VALUES
-    ('Película 1', 'Descripción de la película 1', '2023-01-01', 1),
-    ('Película 2', 'Descripción de la película 2', '2023-02-01', 2),
-    ('Película 3', 'Descripción de la película 3', '2023-03-01', 3);
