@@ -1,0 +1,45 @@
+<app-navbar />
+
+<main class="catalog-page container py-4">
+  <header class="catalog-page__header">
+    <div>
+      <span class="catalog-page__eyebrow">Catálogo</span>
+      <h1>Películas disponibles</h1>
+      <p class="text-secondary mb-0">Explora las películas registradas en el sistema.</p>
+    </div>
+    <a routerLink="/categories" class="btn btn-outline-primary">
+      <i class="bi bi-tags me-2"></i>Ver categorías
+    </a>
+  </header>
+
+  @if (loading) {
+    <div class="alert alert-info" role="status">Cargando catálogo...</div>
+  } @else if (errorMessage) {
+    <div class="alert alert-danger" role="alert">{{ errorMessage }}</div>
+  } @else {
+    <div class="row g-4">
+      @for (movie of movies; track movie.id) {
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="movie-card h-100">
+            <div class="movie-card__poster">
+              <i class="bi bi-film"></i>
+              <span>{{ movie.categoria_nombre }}</span>
+            </div>
+            <div class="movie-card__body">
+              <div class="d-flex justify-content-between gap-3">
+                <h2>{{ movie.nombre }}</h2>
+                <span class="movie-card__year">{{ movie.fecha | date:'yyyy' }}</span>
+              </div>
+              <p>{{ movie.descripcion || 'Sin descripción disponible.' }}</p>
+              <small class="text-secondary">
+                <i class="bi bi-calendar3 me-1"></i>{{ movie.fecha | date:'dd/MM/yyyy' }}
+              </small>
+            </div>
+          </article>
+        </div>
+      } @empty {
+        <div class="col-12"><p class="text-center text-secondary">No hay películas registradas.</p></div>
+      }
+    </div>
+  }
+</main>
